@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from fixture.session import SessionHelper
+from fixture.project import ProjectHelper
 
 
 class Application:
@@ -13,6 +14,7 @@ class Application:
         else:
             raise ValueError(f"Unrecognized browser = {browser}")
         self.session = SessionHelper(self)
+        self.project = ProjectHelper(self)
         self.base_url = base_url
 
     def is_valid(self):
@@ -28,7 +30,7 @@ class Application:
 
     def return_to_home_page(self):
         wd = self.wd
-        wd.find_element(By.LINK_TEXT, "home page").click()
+        wd.find_element(By.LINK_TEXT, "My View").click()
 
     def destroy(self):
         self.wd.quit()
