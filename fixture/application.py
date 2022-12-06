@@ -3,10 +3,11 @@ from selenium.webdriver.common.by import By
 
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
+from fixture.soap import SoapHelper
 
 
 class Application:
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, base_url, endpoint, username, password):
         if browser == "chrome":
             self.wd = webdriver.Chrome()
         elif browser == "firefox":
@@ -15,6 +16,7 @@ class Application:
             raise ValueError(f"Unrecognized browser = {browser}")
         self.session = SessionHelper(self)
         self.project = ProjectHelper(self)
+        self.soap = SoapHelper(self, endpoint, username, password)
         self.base_url = base_url
 
     def is_valid(self):

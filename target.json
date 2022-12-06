@@ -5,5 +5,13 @@
   "webadmin": {
     "username": "administrator",
     "password": "root"
+  },
+  "ftp": {
+    "host": "localhost",
+    "username": "mantis",
+    "password": "mantis"
+  },
+  "soap": {
+    "endpoint": "http://localhost/mantisbt-1.2.20/api/soap/mantisconnect.php?wsdl"
   }
 }
